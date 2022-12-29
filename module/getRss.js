@@ -35,7 +35,7 @@ export default async function getRss(callback) {
 
         for (let item of config?.rss) {
 
-            let feed = await new Parser({ timed: 0 }).parseURL(item).catch(e => console.log(e));
+            let feed = await new Parser({ timed: 0 }).parseURL(item).catch(e => console.log(`timed out ${item}`));
             if (feed?.items?.length !== 0 && sentRss?.includes(feed?.items?.[0]?.link) === false && feed?.items?.[0]?.link) {
 
                 let content = feed?.items[0]?.contentSnippet?.replace(/\n\n/g, " ")?.slice(0, 350);
