@@ -87,4 +87,5 @@ MacOS:
 git clone https://github.com/rn0x/Pleroma_Bot
 cd Pleroma_Bot
 npm i
+npm start
 ```
