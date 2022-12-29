@@ -1,0 +1,90 @@
+# Pleroma_Bot
+
+انشاء صور من تغذية RSS ونشرها على منصة Pleroma
+
+
+- انشاء االصور بإستخدام puppeteer 
+- ترجمة تلقائية للغة العربية بإستعمال puppeteer (google translate)
+- نشر تلقائي على حسابك في منصات Pleroma او Mastodon
+
+# المتطلبات
+
+- nodejs 
+- متصفح chromium او chrom
+- رمز accessToken لمنصة Pleroma او Mastodon
+- تحرير ملف config.json 
+
+
+```json
+{
+    "server": "https://bassam.social",
+    "executablePath": "/usr/bin/google-chrome-stable",
+    "accessToken": "3bzFMeso4d1m7kouyfyrtsdfiokGiuytyu",
+    "rss": [
+        "http://www.omgubuntu.co.uk/feed",
+        "http://9to5linux.com/feed",
+        "http://discourse.aosus.org/latest.rss",
+        "http://itsfoss.com/rss",
+        "http://www.webupd8.org/rss.xml",
+        "http://frontpagelinux.com/feed",
+        "http://www.tecmint.com/feed",
+        "http://ubuntu.com/blog/feed",
+        "http://spreadprivacy.com/rss",
+        "http://www.redhat.com/sysadmin/rss.xml",
+        "http://www.kali.org/rss.xml",
+        "http://matrix.org/blog/feed",
+        "http://www.pine64.org/feed",
+        "http://rockylinux.org/rss.xml",
+        "http://forums.whonix.org/tags/important-news.rss",
+        "http://blog.barmej.com/feed",
+        "http://www.tutomena.com/rss.xml",
+        "http://blog.abdelhadi.org/rss",
+        "http://badwi.com/rss",
+        "http://informatic-ar.com/feed",
+        "http://colorslab.com/blog/feed",
+        "http://feeds.feedburner.com/itwadi",
+        "https://librar.net/feed"
+    ]
+}
+```
+- - server = مجال السيرفر
+- - executablePath = مسار متصفح chromium او chrom
+
+```
+linux:
+
+/usr/bin/google-chrome-stable
+
+or 
+
+/usr/bin/chromium
+
+windows:
+
+
+C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe
+
+
+MacOS:
+
+/Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+```
+
+- - accessToken = رمز الوصول لحسابك لمنصة Pleroma او Mastodon
+- - rss = روابط تغذية rss
+
+
+# مثال على الصور
+
+<p align="center">
+  <img align="center" src="./ACGNMQEFUMGFJARQR1E6.png">
+</p>
+
+
+# تثبيت 
+
+```bash
+git clone https://github.com/rn0x/Pleroma_Bot
+cd Pleroma_Bot
+npm i
+```
