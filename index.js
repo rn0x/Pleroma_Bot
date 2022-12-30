@@ -6,7 +6,7 @@ import Mastodon from './module/Mastodon.js';
 import random from './module/random.js';
 import createDatabase from './module/createDatabase.js';
 
-console.log('Starting Bot Rss');
+console.log('Starting Pleroma_Bot');
 
 let __dirname = path.resolve();
 let config = fs.readJSONSync(path.join(__dirname, './config.json'));
@@ -21,7 +21,7 @@ await getRss(async (e) => {
     let text = `العنوان: ${e.title}.\n\n\n`
     text += `الموجز: ${e.content}\n\n`
     text += e.link
-    if (Tmp?.filename && e.title && e.content) {
+    if (Tmp?.filename) {
 
         let buffer = fs.readFileSync(Tmp?.filename)
         let up = await client.Upload(buffer).catch(e => console.log(e));
