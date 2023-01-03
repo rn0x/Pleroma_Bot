@@ -10,7 +10,7 @@
 # المتطلبات
 
 - nodejs 
-- متصفح chromium او chrom
+- متصفح chromium او chrom 
 - رمز accessToken لمنصة Pleroma او Mastodon
 - تحرير ملف config.json 
 
@@ -38,17 +38,30 @@
         "http://forums.whonix.org/tags/important-news.rss",
         "http://blog.barmej.com/feed",
         "http://www.tutomena.com/rss.xml",
-        "http://blog.abdelhadi.org/rss",
+        "https://blog.abdelhadi.org/rss",
         "http://badwi.com/rss",
         "http://informatic-ar.com/feed",
         "http://colorslab.com/blog/feed",
         "http://feeds.feedburner.com/itwadi",
-        "https://librar.net/feed"
+        "https://librar.net/feed",
+        "https://abotyim.github.io/ar/index.xml",
+        "https://aitnews.com/feed",
+        "https://www.linuxuprising.com/feeds/posts/default",
+        "https://9to5google.com/feed",
+        "https://www.networkworld.com/index.rss",
+        "https://www.kitploit.com/feeds/posts/default?alt=rss",
+        "https://gbhackers.com/feed",
+        "https://fariszr.com/index.xml",
+        "https://git.x7md.net/rss.xml"
     ]
 }
 ```
 - - server = مجال السيرفر
-- - executablePath = مسار متصفح chromium او chrom
+- - executablePath = مسار متصفح chromium او chrom 
+
+```bash
+which chromium
+```
 
 ```
 linux:
@@ -58,6 +71,10 @@ linux:
 or 
 
 /usr/bin/chromium
+
+or 
+
+/snap/bin/chromium
 
 windows:
 
