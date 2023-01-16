@@ -36,7 +36,7 @@ export default async function getRss(callback) {
         for (let item of config?.rss) {
 
             let feed = await new Parser({ timed: 600000 }).parseURL(item).catch(e => console.log(`timed out ${item}`));
-            let content = feed?.items[0]?.contentSnippet?.replace(/\n\n/g, " ")?.slice(0, 350);
+            let content = feed?.items[0]?.['content:encodedSnippet']?.replace(/\n\n/g, " ")?.slice(0, 570);
             let title = feed?.items?.[0]?.title;
             let link = feed?.items?.[0]?.link
 
@@ -59,7 +59,7 @@ export default async function getRss(callback) {
                         creator: feed?.items?.[0]?.creator,
                         link: link,
                         isoDate: feed?.items?.[0]?.isoDate,
-                        image: await getImageUrl(feed?.items?.[0]?.content, link).catch(e => console.log(e))
+                        image: await getImageUrl(feed?.items?.[0]?.['content:encoded'], link).catch(e => console.log(e))
                     })
 
                 }

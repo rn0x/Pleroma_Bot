@@ -17,7 +17,7 @@ await getRss(async (e) => {
 
     let client = new Mastodon(config?.server, config?.accessToken);
 
-    let Tmp = await template(path.join(__dirname, `./images/${random(20)}.png`), e.title, e.content, e.image[0], e.icon, e.website).catch((e) => console.log(e));
+    let Tmp = await template(path.join(__dirname, `./images/${random(20)}.png`), e.title, e.content, e.image[0], e.link).catch((e) => console.log(e));
     let text = `العنوان: ${e.title}.\n\n\n`
     text += `الموجز: ${e.content}\n\n`
     text += e.link

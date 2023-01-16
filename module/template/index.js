@@ -3,7 +3,7 @@ import path from 'path';
 import fs from 'fs-extra';
 import CrateHtml from './CrateHtml.js';
 
-export default async function template(filename, titel, content, image, icon, url) {
+export default async function template(filename, titel, content, image, url) {
 
     try {
 
@@ -11,7 +11,6 @@ export default async function template(filename, titel, content, image, icon, ur
             titel: titel,
             content: content,
             image: image,
-            icon: icon,
             url: url
         });
         let __dirname = path.resolve();
@@ -23,7 +22,7 @@ export default async function template(filename, titel, content, image, icon, ur
         };
         let browser = await launch(launchOptions).catch(e => console.log('Error: browser is not launch ', e));
         let page = await browser?.newPage();
-        await page?.setViewport({ width: 700, height: 0 });
+        await page?.setViewport({ width: 1280, height: 0 });
         await page?.goto(`file://${path.join(__dirname, './module/template/index.html')}`, {
             waitUntil: 'load',
             timeout: 600000

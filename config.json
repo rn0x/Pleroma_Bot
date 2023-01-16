@@ -19,7 +19,6 @@
         "http://rockylinux.org/rss.xml",
         "http://forums.whonix.org/tags/important-news.rss",
         "http://blog.barmej.com/feed",
-        "http://www.tutomena.com/rss.xml",
         "https://blog.abdelhadi.org/rss",
         "http://badwi.com/rss",
         "http://informatic-ar.com/feed",
@@ -29,11 +28,12 @@
         "https://abotyim.github.io/ar/index.xml",
         "https://aitnews.com/feed",
         "https://www.linuxuprising.com/feeds/posts/default",
-        "https://9to5google.com/feed",
         "https://www.networkworld.com/index.rss",
         "https://www.kitploit.com/feeds/posts/default?alt=rss",
         "https://gbhackers.com/feed",
         "https://fariszr.com/index.xml",
-        "https://git.x7md.net/rss.xml"
+        "https://git.x7md.net/rss.xml",
+        "https://linuxarabia.co/rss",
+        "https://fosspost.org/feed"
     ]
 }

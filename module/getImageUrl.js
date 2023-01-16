@@ -1,14 +1,11 @@
 import { parse } from 'node-html-parser';
-import fetch from 'node-fetch';
 
-export default async function getImageUrl(content, url) {
+export default async function getImageUrl(content) {
 
     try {
 
-        const response = await fetch(url)
-        let text = await response?.text()
         let img = parse(content)?.querySelectorAll('img');
-        let Ogimg = parse(text)?.querySelector('meta[property=og:image]');
+        let Ogimg = parse(content)?.querySelector('meta[property=og:image]');
         let array = []
 
         if (img?.length !== 0) {
