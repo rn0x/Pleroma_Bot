@@ -38,7 +38,13 @@ export default async function getRss(callback) {
             let feed = await new Parser({ timed: 600000 }).parseURL(item).catch(e => console.log(`timed out ${item}`));
             let content = feed?.items[0]?.['content:encodedSnippet']?.replace(/\n\n/g, " ")?.slice(0, 570);
             let title = feed?.items?.[0]?.title;
-            let link = feed?.items?.[0]?.link
+            let link = feed?.items?.[0]?.link;
+
+            if (content === undefined) {
+
+                content = feed?.items[0]?.contentSnippet?.replace(/\n\n/g, " ")?.slice(0, 570);
+
+            }
 
             if (feed?.items?.length !== 0 && sentRss?.includes(link) === false && title && title !== '' && content && content !== '') {
 
@@ -47,8 +53,8 @@ export default async function getRss(callback) {
 
                 if (title_ar && content_ar) {
 
-                    sentRss.push(link);
-                    fs.writeJSONSync(path.join(__dirname, './database/sentRss.json'), sentRss, { spaces: '\t' });
+                   sentRss.push(link);
+                   fs.writeJSONSync(path.join(__dirname, './database/sentRss.json'), sentRss, { spaces: '\t' });
                     callback({
                         website: item,
                         icon: feed?.image?.url,
