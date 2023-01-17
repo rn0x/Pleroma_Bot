@@ -1,11 +1,22 @@
 import { parse } from 'node-html-parser';
+import fetch from 'node-fetch';
 
-export default async function getImageUrl(content) {
+export default async function getImageUrl(content, url) {
 
     try {
 
-        let img = parse(content)?.querySelectorAll('img');
-        let Ogimg = parse(content)?.querySelector('meta[property=og:image]');
+        const response = await fetch(url);
+        const text = await response?.text();
+
+        let img = []
+
+        if (content !== undefined) {
+
+            img = parse(content)?.querySelectorAll('img');
+            
+        }
+
+        let Ogimg = parse(text)?.querySelector('meta[property=og:image]');
         let array = []
 
         if (img?.length !== 0) {
@@ -25,7 +36,7 @@ export default async function getImageUrl(content) {
 
         else {
 
-            return content?.match(/<img [^>]*src="[^"]*"[^>]*>/gm)
+            return Ogimg?.match(/<img [^>]*src="[^"]*"[^>]*>/gm)
                 ?.map(x => x?.replace(/.*src="([^"]*)".*/, '$1')) || []
         }
 
