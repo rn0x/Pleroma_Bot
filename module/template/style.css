@@ -12,9 +12,8 @@ body {
     margin: 0 0 0 0;
     background-color: #d3d3d3;
 }
-
 #header{
-    margin-top: 30px;
+    margin-top: 20px;
     direction: rtl;
 }
 #header p{
@@ -22,7 +21,8 @@ body {
     display: inline-flex;
     background-color: #e22b2b;
     color: #fff;
-    padding: 10px;
+    padding: 15px;
+    font-size: 20px;
     font-family: 'Al_Jazeera';
     border-radius: 10px;
     box-shadow: 0 0.5rem 1rem hsl(0 0% 0% / 30%);
