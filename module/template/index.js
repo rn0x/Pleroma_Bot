@@ -22,7 +22,7 @@ export default async function template(filename, titel, content, image, url) {
         };
         let browser = await launch(launchOptions).catch(e => console.log('Error: browser is not launch ', e));
         let page = await browser?.newPage();
-        await page?.setViewport({ width: 1280, height: 0 });
+        await page?.setViewport({ width: 1200, height: 0 });
         await page?.goto(`file://${path.join(__dirname, './module/template/index.html')}`, {
             waitUntil: 'load',
             timeout: 600000
