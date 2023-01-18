@@ -29,7 +29,10 @@ export default async function googleTranslate(text) {
 
         // https://translate.google.com/#view=home&op=translate&sl=auto&tl=ar&text=${text}
 
-        await page?.goto(`https://translate.google.com/?hl=ar&sl=auto&tl=ar&text=${text}`, {
+        let from = 'auto'
+        let to = 'ar'
+        let url = encodeURI(`https://translate.google.com/?sl=${from}&tl=${to}&text=${text}`)
+        await page?.goto(url, {
             waitUntil: 'load',
             timeout: 600000
         });
