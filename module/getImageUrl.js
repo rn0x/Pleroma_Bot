@@ -36,7 +36,7 @@ export default async function getImageUrl(content, url) {
 
         else {
 
-            return Ogimg?.match(/<img [^>]*src="[^"]*"[^>]*>/gm)
+            return text?.match(/<img [^>]*src="[^"]*"[^>]*>/gm)
                 ?.map(x => x?.replace(/.*src="([^"]*)".*/, '$1')) || []
         }
 
