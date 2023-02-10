@@ -63,7 +63,7 @@ export default async function getRss(callback) {
                         title: title_ar,
                         content: content_ar,
                         creator: feed?.items?.[0]?.creator,
-                        link: link,
+                        link: decodeURI(link),
                         isoDate: feed?.items?.[0]?.isoDate,
                         image: await getImageUrl(feed?.items?.[0]?.['content:encoded'], link).catch(e => console.log(e))
                     })
