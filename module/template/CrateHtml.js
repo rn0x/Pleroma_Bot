@@ -8,10 +8,7 @@ export default async function CrateHtml({
     image: image,
     url: url
 
-}) {
-
-    let Url = decodeURI(url)
-    
+}) {    
 
     if (image === undefined || image?.length === 0 || image?.includes('.ico') || isUrl(image) === false) {
         image = './icon/rss.png'
@@ -58,7 +55,7 @@ export default async function CrateHtml({
 
                 <p id="url">
                 
-                ${Url}
+                ${url}
 
                 </p>
             </div>
