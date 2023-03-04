@@ -46,6 +46,7 @@ export default async function googleTranslate(text) {
         return translate
 
     } catch (error) {
+        console.log(error);
         return undefined
     } finally {
         await browser?.close();

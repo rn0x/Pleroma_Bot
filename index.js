@@ -1,35 +1,29 @@
-import fs from 'fs-extra';
+import fetchFeeds from './modules/fetchFeeds.js';
+import Mastodon from './modules/Mastodon.js';
 import path from 'path';
-import getRss from './module/getRss.js';
-import template from './module/template/index.js';
-import Mastodon from './module/Mastodon.js';
-import random from './module/random.js';
-import createDatabase from './module/createDatabase.js';
+import fs from 'fs-extra';
+import template from './template/index.js';
 
 console.log('Starting Pleroma_Bot');
 
-let __dirname = path.resolve();
-let config = fs.readJSONSync(path.join(__dirname, './config.json'));
-await createDatabase().catch((e) => console.log(e));
+const __dirname = path.resolve();
+const config = fs.readJSONSync(path.join(__dirname, './config.json'));
 
-await getRss(async (e) => {
-
+await fetchFeeds(async e => {
 
     let client = new Mastodon(config?.server, config?.accessToken);
-
-    let Tmp = await template(path.join(__dirname, `./images/${random(20)}.png`), e.title, e.content, e.image[0], e.link).catch((e) => console.log(e));
-    let text = `العنوان: ${e.title}.\n\n\n`
-    text += `الموجز: ${e.content}\n\n`
+    let Tmp = await template(e.title, e.description, e.image, e.link).catch((e) => console.log(e.toString()));
+    let text = `${e.title}.\n\n\n___________`
+    text += `\n\n${e.description}\n\n`
     text += e.link
-    if (Tmp?.filename) {
 
-        let buffer = fs.readFileSync(Tmp?.filename)
-        let up = await client.Upload(buffer).catch(e => console.log(e));
+    if (Tmp.buffer) {
+
+        let up = await client.Upload(Tmp?.buffer).catch(e => console.log(e));
 
         if (up?.id) {
             await client.Publish(text, up?.id).catch(e => console.log(e));
         }
 
     }
-
-}).catch((e) => console.log(e));
+});

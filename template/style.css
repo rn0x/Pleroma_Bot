@@ -37,16 +37,18 @@ body {
 }
 
 #image {
+    margin-top: 40px;
     display: block;
-    width: 400px;
-    height: 400px;
+    width: 500px;
+    height: -100%;
     object-fit: cover;
-    border-radius: 50%;
-    box-shadow: 0 1rem 1rem hsl(0 0% 0% / 30%);
+    /* border-radius: 50%; */
+    /* box-shadow: 0 1rem 1rem hsl(0 0% 0% / 30%); */
     margin-right: 80px;
 }
 
 #info {
+    margin-top: 40px;
     direction: rtl;
     padding: 10px;
     /* word-break: break-all; */
@@ -56,11 +58,13 @@ body {
 #info h1 {
     color: #802be2;
     text-align: center;
+    direction: ltr;
 }
 #info p {
     margin-top: 50px;
     color: #474747;
     text-align: center;
+    direction: ltr;
 
 }
 

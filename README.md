@@ -19,7 +19,8 @@
 {
     "server": "https://bassam.social",
     "executablePath": "/usr/bin/google-chrome-stable",
-    "accessToken": "3bzFMeso4d1m7kouyfyrtsdfiokGiuytyu",
+    "accessToken": "3bzFMesodjw09cmyrtsdfiokGiuytyu",
+    "translate": true,
     "rss": [
         "http://www.omgubuntu.co.uk/feed",
         "http://9to5linux.com/feed",
@@ -88,13 +89,14 @@ MacOS:
 ```
 
 - - accessToken = رمز الوصول لحسابك لمنصة Pleroma او Mastodon
+- - translate = تفعيل ترجمة الموجز او إلغائها true = تفعيل | false = تعطيل
 - - rss = روابط تغذية rss
 
 
 # مثال على الصور
 
 <p align="center">
-  <img align="center" src="./ACGNMQEFUMGFJARQR1E6.png">
+  <img align="center" src="./preview.png">
 </p>
 
 
@@ -105,4 +107,27 @@ git clone https://github.com/rn0x/Pleroma_Bot
 cd Pleroma_Bot
 npm i
 npm start
+```
+
+
+# تشغيل التطبيق عبر pm2
+
+لتشغيل البوت مع بدء تشغيل النظام 
+
+```bash
+sudo npm install pm2 -g
+pm2 startup
+cd Pleroma_Bot
+pm2 start index.js --name rss
+pm2 save
+
+# log 
+
+pm2 log rss
+
+# إعادة تشغيل البوت كل ساعة 
+
+pm2 restart rss --cron-restart="0 * * * *"
+pm2 save
+
 ```

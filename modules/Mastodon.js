@@ -1,8 +1,6 @@
 import fetch, { FormData, fileFromSync, File } from 'node-fetch';
 import { fileTypeFromBuffer, fileTypeFromFile } from 'file-type';
 
-
-
 export default class Mastodon {
 
     /** 
