@@ -10,6 +10,7 @@ export default async function CrateHtml({
 
 }) {
 
+    let dir = detectArabic(description) ? 'rtl' : 'ltr';
     let html = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,28 +23,42 @@ export default async function CrateHtml({
     <div id="content">
         <img id="image" src="${image}">
         <div id="info">
-            <h1>
+            <h1 style="direction: ${dir};">
+
             ${titel}
             
             </h1>
-            <p>
+
+            <p style="direction: ${dir};">
+
             ${description?.replace(/\n\n/g, " ")?.slice(0, 570)}...
+
             </p>
+
             <div id="url_posts">
+
                 <p id="posts">
+
                     Post link
+
                 </p>
+
                 <p id="url">
                 
                 ${url}
 
                 </p>
+
             </div>
+
         </div>
     </div>
     <div id="footer">
+
         <img src="./icon/logo.png" id="footer_icon">
+
         <p id="footer_website">bassam.social</p>
+        
     </div>
 </body>
 </html>`
@@ -53,12 +68,7 @@ export default async function CrateHtml({
 
 
 
-// function isUrl(str) {
-//     var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
-//         '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
-//         '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
-//         '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
-//         '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
-//         '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
-//     return !!pattern.test(str);
-// }
+function detectArabic(inputString) {
+    const arabicRegex = /[\u0600-\u06FF\u0750-\u077F]/;
+    return arabicRegex.test(inputString);
+}
